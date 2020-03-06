@@ -111,7 +111,7 @@ for mX in mXvec:
   print 'nameconst:', nameconst
   print ' latconst:', latconst
   print ' lonconst:', lonconst
-  changetxt = 'Const: ID [%s], Name [%s], Lat [%s], Lon [%s]'%(IDconst,nameconst,latconst,lonconst)
+  changetxt = 'Const: %s: ID [%s], Name [%s], Lat [%s], Lon [%s]'%(ID0,IDconst,nameconst,latconst,lonconst)
   changevec.append(changetxt)
  
 npz_file = './basic_meta.npz'
