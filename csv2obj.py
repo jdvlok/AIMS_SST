@@ -41,7 +41,7 @@ npz_file = './basic_meta.npz'
 npzf = np.load(npz_file)
 mXvec = npzf['v1']
 
-nodataIDvec,fileswritten,files_notwritten = [],0,0
+IDlist,nodataIDvec,fileswritten,files_notwritten = [],[],0,0
 totallines,totalvalid,totalmissing=0,0,0
 c,Ld=0,len(mXvec)
 changevec = []
@@ -113,10 +113,12 @@ for mX in mXvec:
   print ' lonconst:', lonconst
   changetxt = 'Const: %s: ID [%s], Name [%s], Lat [%s], Lon [%s]'%(ID0,IDconst,nameconst,latconst,lonconst)
   changevec.append(changetxt)
- 
-npz_file = './basic_meta.npz'
-np.savez_compressed(npz_file,v1=mXvec)
+
+#write more complete basic meta data to new file to prevent being overwritten by basic_meta_from_csv_files.py:
+npz_file = './basic_meta2.npz' 
+np.savez_compressed(npz_file,v1=mXvec,v2=IDlist)
 print 'Saved %d stations metadata to %s'%(c, npz_file)
+print 'len(IDlist) = %d'%(len(IDlist))
 
 print 'Total lines =', totallines
 print '-Valid:',totalvalid
