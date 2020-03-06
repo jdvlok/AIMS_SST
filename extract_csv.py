@@ -15,6 +15,15 @@ from datetime import datetime
 
 t0 = time.time()
 
+def write_to_file(fname_, mode_, vec1, vec2, vec3, vec4, vec5, vec6, vec7):
+ linecount=0
+ f_ = open(fname_, mode_) #w: write, a: append, r+: read/write, r: read
+ for v1,v2,v3,v4,v5,v6,v7 in zip(vec1, vec2, vec3, vec4, vec5, vec6, vec7):
+  f_.write('"%s","%s","%s","%s","%s","%s","%s"\n'%(v1,v2,v3,v4,v5,v6,v7))
+  linecount+=1
+ f_.close()
+ return linecount
+
 dirname = './csvfiles'
 if not os.path.exists(dirname):
  os.mkdir(dirname)
@@ -25,15 +34,6 @@ fnzip = './temp-logger.zip'
 fncsv = 'temp-logger.csv'
 #extract_data(fncsv)
 #onerow = extract_data(fncsv)
-
-def write_to_file(fname_, mode_, vec1, vec2, vec3, vec4, vec5, vec6, vec7):
- linecount=0
- f_ = open(fname_, mode_) #w: write, a: append, r+: read/write, r: read
- for v1,v2,v3,v4,v5,v6,v7 in zip(vec1, vec2, vec3, vec4, vec5, vec6, vec7):
-  f_.write('"%s","%s","%s","%s","%s","%s","%s"\n'%(v1,v2,v3,v4,v5,v6,v7))
-  linecount+=1
- f_.close()
- return linecount
 
 totallines, validlines, filecount = 0,0,0
 archive = zipfile.ZipFile(fnzip,'r')
