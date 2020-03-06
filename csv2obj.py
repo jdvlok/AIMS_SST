@@ -48,6 +48,7 @@ changevec = []
 for mX in mXvec:
  c+=1
  ID0 = mX.ID
+ IDlist.append(ID0)
  name0 = mX.name
  lat0, lon0 = mX.lat, mX.lon
  fncsv = './csvfiles/%s.csv'%ID0
