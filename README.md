@@ -49,12 +49,16 @@ Time elapsed = 4642.9801 seconds = 01:17:22
 
 5. compute_daily_data.py
 
-6. list_stations.py
+6. list_stations.py:
 Run through all stations in ./datfiles, extract and save metadata (station_meta_list as in marine_station_def.py) to
 table_meta.npz, which will be used to generate LaTeX table containing all 750 stations and their metadata
 Saved 750 stations metadata to ./table_meta.npz
 Time elapsed = 1553.9474 seconds = 00:25:53
 
-7. table_stations.py
+7. table_stations.py:
 Read table_meta.npz and create code for multiple LaTeX tables in stations_table.tex
+
+8. plot_all.py:
+Plot all SST data one chart and save to ./allsX.png
+Time elapsed = 5253.3106 seconds = 01:27:33
 
